@@ -83,10 +83,21 @@ function fetchBookmarks() {
    }
 }
 
+// Get the modal
+var modal = document.getElementById('myModal');
+
+// Get the <span> element that closes the modal
+var span = document.getElementsByClassName("close")[0];
+
+/* span.onclick = function() {
+    modal.style.display = "none";
+}
+*/
+
 // Validate form
 function validateForm(siteName, siteUrl) {
   if(!siteName || !siteUrl){
-    alert('Please fill in the form');
+    modal.style.display = "block";
     return false;
   }
 
@@ -94,9 +105,18 @@ function validateForm(siteName, siteUrl) {
   var regex = new RegExp(expression);
 
   if(!siteUrl.match(regex)){
-    alert('Please use a valid URL');
+    modal.style.display = "block"
     return false;
   }
 
   return true;
 }
+
+/* When the user clicks anywhere outside of the modal, close it
+window.onclick = function(event) {
+    if (event.target == modal) {
+        modal.style.display = "none";
+    }
+} 
+*/
+
